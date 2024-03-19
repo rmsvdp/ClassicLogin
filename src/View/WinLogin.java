@@ -52,9 +52,10 @@ public class WinLogin {
 
 	private void apply(Integer result) {
 		String str;
-		if (result == 0) str = "Usuario o contraseña incorrectos!";
+		if (result == 1) str = "Usuario o contraseÃ±a incorrectos!";
 		else str = "Agotados el numero de intentos!";
 		JOptionPane.showConfirmDialog(frame,str);
+		if (result == 0) endApp();
 	}
 	
 	private void endApp() {
@@ -76,7 +77,7 @@ public class WinLogin {
 			switch(ac) {
 			case "Aceptar":
 				result = ctrl.CheckAccess("u", "p");
-				if (result==1) {
+				if (result==-1) {
 					JOptionPane.showConfirmDialog(frame,"Acceso permitido !"); 
 					endApp();
 				}
